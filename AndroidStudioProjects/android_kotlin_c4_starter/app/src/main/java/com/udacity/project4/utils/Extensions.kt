@@ -29,6 +29,8 @@ fun Fragment.setTitle(title: String) {
 
 fun Fragment.setDisplayHomeAsUpEnabled(bool: Boolean) {
     if (activity is AppCompatActivity) {
+        //sets Up button so that clicking on it takes User up on level in the UI
+        //rather than to the next nav desintation
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(
             bool
         )

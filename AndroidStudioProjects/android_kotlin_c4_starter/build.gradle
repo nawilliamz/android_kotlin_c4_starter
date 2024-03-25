@@ -43,6 +43,14 @@ buildscript {
         mavenCentral()
     }
 
+//    plugins {
+//        // ...
+//
+//        // Add the dependency for the Google services Gradle plugin
+//        id("com.google.gms.google-services") version "4.4.1" apply false
+//
+//    }
+
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
@@ -50,7 +58,11 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.15'
         classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1"
 
+
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
     }
+
 }
