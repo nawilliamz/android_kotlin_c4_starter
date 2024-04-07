@@ -18,6 +18,9 @@ object BindingAdapters {
         items?.value?.let { itemList ->
             (recyclerView.adapter as? BaseRecyclerViewAdapter<T>)?.apply {
                 clear()
+                //addData() adds the elements that compose itemList to the end of List that is the value
+                //of the LiveData passed into the arg. They are appended in the order that they appear in
+                //the the itemList collection
                 addData(itemList)
             }
         }

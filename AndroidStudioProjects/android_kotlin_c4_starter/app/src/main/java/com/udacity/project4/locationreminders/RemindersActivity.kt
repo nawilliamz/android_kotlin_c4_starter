@@ -3,7 +3,10 @@ package com.udacity.project4.locationreminders
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.udacity.project4.databinding.ActivityRemindersBinding
 
 /**
@@ -22,10 +25,15 @@ class RemindersActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                (binding.navHostFragment as NavHostFragment).navController.popBackStack()
+
+                binding.navHostFragment.findNavController().popBackStack()
+//                (binding.navHostFragment as NavHostFragment).navController.popBackStack()
                 return true
             }
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+
 }

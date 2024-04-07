@@ -3,6 +3,7 @@ package com.udacity.project4.locationreminders.savereminder
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.PointOfInterest
 import com.udacity.project4.R
 import com.udacity.project4.base.BaseViewModel
@@ -25,12 +26,15 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
      * Clear the live data objects to start fresh next time the view model gets called
      */
     fun onClear() {
-        reminderTitle.value = null
-        reminderDescription.value = null
-        reminderSelectedLocationStr.value = null
-        selectedPOI.value = null
-        latitude.value = null
-        longitude.value = null
+
+        //Setting the default values as they display here to avoid setting them to null which is not possible with
+        //Kotlin
+        reminderTitle.value = ""
+        reminderDescription.value = ""
+        reminderSelectedLocationStr.value = ""
+        selectedPOI.value = PointOfInterest(LatLng(-1.0, -1.0), "", "")
+        latitude.value = -1.0
+        longitude.value = -1.0
     }
 
     /**

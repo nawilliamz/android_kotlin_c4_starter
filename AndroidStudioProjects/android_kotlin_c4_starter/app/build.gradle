@@ -22,6 +22,7 @@ android {
         targetSdk rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -153,5 +154,8 @@ dependencies {
     // Firebase
     implementation "com.firebaseui:firebase-ui-auth:$firebaseUiAuthVersion"
     implementation "com.google.firebase:firebase-auth-ktx:$firebaseAuthKtxVersion"
+
+    //Multidex support - required since minSDK for project < 21
+    implementation 'com.android.support:multidex:1.0.3'
 
 }

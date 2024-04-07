@@ -16,6 +16,9 @@ import java.util.*
  * @param id          id of the reminder
  */
 
+
+//These are used to store reminders in Room. They are converted to ReminderDataItems prior to displaying the
+//reminder info in the UI
 @Entity(tableName = "reminders")
 data class ReminderDTO(
     @ColumnInfo(name = "title") var title: String?,

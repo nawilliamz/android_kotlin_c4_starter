@@ -49,6 +49,7 @@ class SaveReminderFragment : BaseFragment() {
             // TODO: use the user entered reminder details to:
             //  1) add a geofencing request
             //  2) save the reminder to the local db
+            //You will need to save selected location data to selectedPOI property in the VM
         }
     }
 
