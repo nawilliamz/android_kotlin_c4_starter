@@ -30,18 +30,6 @@ import com.udacity.project4.databinding.FragmentSelectLocationBinding
 
 class RemindersActivity : AppCompatActivity() {
 
-//    lateinit var map: GoogleMap
-
-    companion object {
-
-        fun getGoogleMap(map:GoogleMap):GoogleMap {
-            return map
-        }
-
-    }
-
-
-
     private lateinit var binding: ActivityRemindersBinding
 
     private lateinit var selectLocationBinding: FragmentSelectLocationBinding
@@ -54,22 +42,6 @@ class RemindersActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
-//        val selectLocationView = selectLocationBinding.root
-//        val currentFragOnDisplay = Navigation.findNavController(selectLocationView).currentDestination?.id
-//        if (selectLocationView.id == currentFragOnDisplay) {
-////            selectLocationBinding = DataBindingUtil.inflate(layoutInflater, R.id.map, binding.navHostFragment, false)
-//            val mapFragment = selectLocationView.findViewById<View>(R.id.map).findFragment<Fragment>() as SupportMapFragment
-//            mapFragment.getMapAsync(this)
-//        }
-
-//        val mapFrag = supportFragmentManager.findFragmentById(R.id.map)
-//        Log.i("ReminderActivity", "R.id.map value is ${mapFrag}")
-
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        val mapFragment = mapFrag as SupportMapFragment
-//        mapFragment.getMapAsync(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

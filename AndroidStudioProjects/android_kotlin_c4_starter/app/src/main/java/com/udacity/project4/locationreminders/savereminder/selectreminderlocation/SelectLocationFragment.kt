@@ -47,18 +47,25 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 
 
 
-        val mapFragXX = this.activity?.supportFragmentManager
-        Log.i("SelectLocationFragment", "The value of mapFragXX is $mapFragXX")
-        val mapFragment = mapFragXX as SupportMapFragment
+        
+        val mapFragXXX = childFragmentManager.findFragmentById(R.id.map)
+        Log.i("SelectLocationFragment", "The value of mapFragXXX is $mapFragXXX")
+        val mapFragment = mapFragXXX as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+//        val mapFragXX = this.activity?.supportFragmentManager?.findFragmentById(R.id.map)
+//        Log.i("SelectLocationFragment", "The value of mapFragXX is $mapFragXX")
+//        val mapFragment = mapFragXX as SupportMapFragment
+//        mapFragment.getMapAsync(this)
+//
 //        val mapFragX = parentFragmentManager.findFragmentById(R.id.map)
-        //This is returned null for mapFragX because this fragment is not associated with a transaction or host
+////        This is returned null for mapFragX because this fragment is not associated with a transaction or host
 //        Log.i("SelectLocationFragment", "The value of mapFragX is $mapFragX")
 
 //        val mapFrag = (parentFragment as NavHostFragment).childFragmentManager.findFragmentById(R.id.map)
-        //This is returning null for mapFrag because this fragment (SelectLocationFragment) is attached directly to the
-        //RemindersActivity class (it is not attached/associated with NavHostFragment)
+//        This is returning null for mapFrag because this fragment (SelectLocationFragment) is attached directly to the
+//        RemindersActivity class (it is not attached/associated with NavHostFragment)
+
 //        val mapFrag = parentFragmentManager.findFragmentById()
 //        Log.i("SelectLocationFragment", "The value of mapFrag is $mapFrag")
 //        val mapFragment = mapFrag as SupportMapFragment
@@ -68,10 +75,6 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 //        val mapFragY = (parentFragment as NavHostFragment).parentFragmentManager.findFragmentById(R.id.map)
 //        Log.i("SelectLocationFragment", "The value of mapFragY is $mapFragY")
 
-
-//        activity
-//        requireActivity()
-//        Is NavHostFragment associated with an activity or only a context
 
         setHasOptionsMenu(true)
         setDisplayHomeAsUpEnabled(true)
@@ -102,19 +105,19 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         // TODO: Change the map type based on the user's selection.
         R.id.normal_map -> {
-            RemindersActivity.getGoogleMap(map).mapType = GoogleMap.MAP_TYPE_NORMAL
+            map.mapType = GoogleMap.MAP_TYPE_NORMAL
             true
         }
         R.id.hybrid_map -> {
-            RemindersActivity.getGoogleMap(map).mapType = GoogleMap.MAP_TYPE_HYBRID
+            map.mapType = GoogleMap.MAP_TYPE_HYBRID
             true
         }
         R.id.satellite_map -> {
-            RemindersActivity.getGoogleMap(map).mapType = GoogleMap.MAP_TYPE_SATELLITE
+            map.mapType = GoogleMap.MAP_TYPE_SATELLITE
             true
         }
         R.id.terrain_map -> {
-            RemindersActivity.getGoogleMap(map).mapType = GoogleMap.MAP_TYPE_TERRAIN
+            map.mapType = GoogleMap.MAP_TYPE_TERRAIN
             true
         }
         else -> super.onOptionsItemSelected(item)
@@ -122,9 +125,11 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
 
+        map = googleMap
+
         val sydney = LatLng(-34.0, 151.0)
-        RemindersActivity.getGoogleMap(map).addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        RemindersActivity.getGoogleMap(map).moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        map.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
     }
 
